@@ -9,11 +9,9 @@
   @for (member of members; track member.id) {
     <div
       class="card"
-      (click)="select(member.id)"
       [routerLink]="['/details', member.id]"
-      [style.view-transition-name]="
-        member.id === selectedId() ? 'card-image' : 'none'
-      "
+      appViewTransition="card-image"
+      [id]="member.id"
     >
       <img [src]="member.imageUrl" />
     </div>

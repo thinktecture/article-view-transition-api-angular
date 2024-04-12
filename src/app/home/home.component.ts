@@ -1,16 +1,12 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MemberService } from '../member.service';
+import { ViewTransitionDirective } from '../view-transition.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ViewTransitionDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,9 +14,4 @@ import { MemberService } from '../member.service';
 export class HomeComponent {
   private readonly memberService = inject(MemberService);
   public members = this.memberService.loadMembers();
-  public selectedId = signal<number>(0);
-
-  public select(id: number): void {
-    this.selectedId.set(id);
-  }
 }
