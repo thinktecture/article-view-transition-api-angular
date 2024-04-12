@@ -41,6 +41,7 @@ button {
   border-radius: 0.5rem;
   overflow: clip;
   max-height: 30rem;
+  view-transition-name: card-image;
   img {
     aspect-ratio: 1.618;
     object-fit: cover;

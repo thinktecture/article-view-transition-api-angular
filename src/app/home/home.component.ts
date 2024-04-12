@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MemberService } from '../member.service';
 
@@ -13,4 +18,9 @@ import { MemberService } from '../member.service';
 export class HomeComponent {
   private readonly memberService = inject(MemberService);
   public members = this.memberService.loadMembers();
+  public selectedId = signal<number>(0);
+
+  public select(id: number): void {
+    this.selectedId.set(id);
+  }
 }
