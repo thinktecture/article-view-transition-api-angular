@@ -1,0 +1,14 @@
+<header>
+  <section>
+    <h1>Thinktecture AG</h1>
+    <h2>Members</h2>
+  </section>
+</header>
+
+<main>
+  @for (member of members; track member.id) {
+    <div class="card" [routerLink]="['/details', member.id]">
+      <img [src]="member.imageUrl" />
+    </div>
+  }
+</main>

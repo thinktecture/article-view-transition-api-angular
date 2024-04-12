@@ -1,0 +1,36 @@
+header {
+  padding: 3rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.25rem;
+}
+h2 {
+  font-size: 1rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  padding: 0 3rem;
+  max-width: 100%;
+}
+
+.card {
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+  overflow: clip;
+  max-height: 12rem;
+  img {
+    aspect-ratio: 1.618;
+    object-fit: cover;
+    width: 100%;
+  }
+}
