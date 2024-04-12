@@ -1,0 +1,16 @@
+<header>
+  <section>
+    <h2 [routerLink]="['/home']">← Thinktecture AG</h2>
+  </section>
+</header>
+
+<main>
+  <section>
+    <h1>{{ member().name }}</h1>
+    <button>View Profile</button>
+  </section>
+
+  <div class="card">
+    <img [src]="member().imageUrl" />
+  </div>
+</main>
