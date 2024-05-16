@@ -5,13 +5,32 @@
   </section>
 </header>
 
+<fieldset class="sort-controls" [formGroup]="filterForm">
+  <legend>Filter:</legend>
+
+  <div>
+    <input type="radio" id="all" value="all" formControlName="filter" />
+    <label for="all">All</label>
+  </div>
+
+  <div>
+    <input type="radio" id="odd" value="odd" formControlName="filter" />
+    <label for="odd">Odd ID</label>
+  </div>
+
+  <div>
+    <input type="radio" id="even" value="even" formControlName="filter" />
+    <label for="even">Even ID</label>
+  </div>
+</fieldset>
+
 <main>
-  @for (member of members; track member.id) {
+  @for (member of members$ | async; track member.id) {
     <div
       class="card"
       [routerLink]="['/details', member.id]"
-      appViewTransition="card-image"
       [id]="member.id"
+      [appSortableItem]="member.id"
     >
       <img [src]="member.imageUrl" />
     </div>
